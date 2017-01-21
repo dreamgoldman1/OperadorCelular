@@ -175,7 +175,7 @@ class ApiController extends Controller
         
         
         $response = new Response("Esta es la respuesta del API");
-        die;
+        return $response;
         
         
         $saldo = SaldoController::getSaldoCliente($no_celular);
