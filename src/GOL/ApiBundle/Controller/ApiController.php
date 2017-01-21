@@ -173,6 +173,12 @@ class ApiController extends Controller
     
     function apiGetSaldoDisponibleAction($no_celular) {
         $saldo = SaldoController::getSaldoCliente($no_celular);
+        
+        echo "<pre>";
+        var_dump($saldo);
+        die;
+        
+        
         $costoActual = AdministradorController::getCostoActual();
         
         $saldo['saldo'] = $saldo['total_recargas'] - $saldo['total_consumos'];
