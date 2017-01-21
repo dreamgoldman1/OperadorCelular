@@ -1,0 +1,19 @@
+gol_api:
+    resource: "@GOLApiBundle/Resources/config/routing.yml"
+    prefix:   /
+
+gol_footer:
+    resource: "@GOLFooterBundle/Resources/config/routing.yml"
+    prefix:   /
+
+gol_content:
+    resource: "@GOLContentBundle/Resources/config/routing.yml"
+    prefix:   /
+
+gol_menu:
+    resource: "@GOLMenuBundle/Resources/config/routing.yml"
+    prefix:   /
+
+gol_header:
+    resource: "@GOLHeaderBundle/Resources/config/routing.yml"
+    prefix:   /

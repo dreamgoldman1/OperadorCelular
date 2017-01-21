@@ -1,0 +1,3 @@
+gol_header_homepage:
+    path:     /header
+    defaults: { _controller: GOLHeaderBundle:Default:index }

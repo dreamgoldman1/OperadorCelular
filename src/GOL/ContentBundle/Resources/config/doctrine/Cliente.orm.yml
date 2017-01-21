@@ -1,0 +1,22 @@
+GOL\ContentBundle\Entity\Cliente:
+    type: entity
+    table: null
+    repositoryClass: GOL\ContentBundle\Repository\ClienteRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        noCelular:
+            type: string
+            length: 255
+            column: no_celular
+        fecha:
+            type: string
+            length: 255
+        estado:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

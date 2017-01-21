@@ -1,0 +1,4 @@
+services:
+#    gol_header.example:
+#        class: GOL\HeaderBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

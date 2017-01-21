@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/var/www/operadorcelular/src/GOL/ContentBundle/Controller/RecargaController.php</file>
+            <file>file:/var/www/operadorcelular/src/GOL/ContentBundle/Resources/views/Consumo/consumos.html.twig</file>
+            <file>file:/var/www/operadorcelular/src/GOL/ContentBundle/Controller/ConsumoController.php</file>
+            <file>file:/var/www/operadorcelular/src/GOL/ContentBundle/Resources/views/Consumo/detalles-consumos.html.twig</file>
+            <file>file:/var/www/operadorcelular/src/GOL/ContentBundle/Resources/views/Recarga/recargas.html.twig</file>
+            <file>file:/var/www/operadorcelular/src/GOL/ContentBundle/Resources/views/Recarga/detalles-recargas.html.twig</file>
+        </group>
+    </open-files>
+</project-private>

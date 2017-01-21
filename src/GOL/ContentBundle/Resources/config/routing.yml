@@ -1,0 +1,40 @@
+# HOME
+gol_content_home:
+    path:     /
+    defaults: { _controller: GOLContentBundle:Cliente:clientes }
+
+# CLIENTES
+gol_content_clientes:
+    path:     /clientes
+    defaults: { _controller: GOLContentBundle:Cliente:clientes }
+    
+gol_content_nuevo_cliente:
+    path:     /nuevo-cliente
+    defaults: { _controller: GOLContentBundle:Cliente:nuevocliente }
+    
+gol_content_editar_cliente:
+    path:     /editar-cliente/{idCliente}
+    defaults: { _controller: GOLContentBundle:Cliente:editarcliente }
+    
+# RECARGAS
+gol_content_recargas:
+    path:     /recargas
+    defaults: { _controller: GOLContentBundle:Recarga:recargas }
+    
+gol_content_detalles_recargas:
+    path:     /detalles-recargas/{noCelular}
+    defaults: { _controller: GOLContentBundle:Recarga:detallesrecargas }
+
+# CONSUMOS
+gol_content_consumos:
+    path:     /consumos
+    defaults: { _controller: GOLContentBundle:Consumo:consumos }
+    
+gol_content_detalle_consumos:
+    path:     /detalles-consumos/{noTelefono}
+    defaults: { _controller: GOLContentBundle:Consumo:detallesconsumos }
+    
+# COSTOS
+gol_content_costos:
+    path:     /costos
+    defaults: { _controller: GOLContentBundle:Administrador:costos }

@@ -1,0 +1,34 @@
+GOL\ContentBundle\Entity\Consumo:
+    type: entity
+    table: null
+    repositoryClass: GOL\ContentBundle\Repository\ConsumoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    
+    fields:
+        noCelularOrigen:
+            type: string
+            length: 255
+            column: no_celular_origen
+        noCelularDestino:
+            type: string
+            length: 255
+            column: no_celular_destino
+        valorLlamada:
+            type: string
+            length: 255
+            column: valor_llamada
+        fechaLlamada:
+            type: string
+            length: 255
+            column: fecha_llamada
+        tiempo:
+            type: string
+            length: 255
+            column: tiempo
+            
+    lifecycleCallbacks: {  }

@@ -1,0 +1,24 @@
+GOL\ContentBundle\Entity\Recarga:
+    type: entity
+    table: null
+    repositoryClass: GOL\ContentBundle\Repository\RecargaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        noCelular:
+            type: string
+            length: 255
+            column: no_celular
+        valorRecarga:
+            type: string
+            length: 255
+            column: valor_recarga
+        fechaRecarga:
+            type: string
+            length: 255
+            column: fecha_recarga
+    lifecycleCallbacks: {  }

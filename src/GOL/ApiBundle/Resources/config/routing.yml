@@ -1,0 +1,23 @@
+gol_api_recarga:
+    path:     /api/recarga
+    defaults: { _controller: GOLApiBundle:Api:apirecarga }
+    
+gol_api_recarga_cliente:
+    path:     /api/recarga-cliente
+    defaults: { _controller: GOLApiBundle:Api:apigetrecargacliente }
+    
+gol_api_registrar_llamada:
+    path:     /api/registrar-llamada
+    defaults: { _controller: GOLApiBundle:Api:apiregistrarllamada }
+
+gol_api_registrar_ver_llamadas:
+    path:     /api/ver-llamadas
+    defaults: { _controller: GOLApiBundle:Api:apigetconsumocliente }
+    
+gol_api_consultar_saldo:
+    path:     /api/consulta-saldo
+    defaults: { _controller: GOLApiBundle:Api:apigetsaldocliente }
+    
+gol_api_consultar_saldo_disponible:
+    path:     /api/consulta-saldo-disponible/{no_celular}
+    defaults: { _controller: GOLApiBundle:Api:apigetsaldodisponible }

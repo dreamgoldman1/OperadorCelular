@@ -1,0 +1,19 @@
+GOL\ContentBundle\Entity\Costo:
+    type: entity
+    table: null
+    repositoryClass: GOL\ContentBundle\Repository\CostoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        valorSegundo:
+            type: string
+            length: 255
+            column: valor_segundo
+        fecha:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
