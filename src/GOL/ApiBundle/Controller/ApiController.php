@@ -141,8 +141,9 @@ class ApiController extends Controller
     }
     
     function apiGetSaldoClienteAction(Request $request){
-        if ($request->getMethod() == 'POST'){
+        //if ($request->getMethod() == 'POST'){
             $no_celular = $request->get('no_celular');
+            $no_celular = "3015192617";
             $saldo = SaldoController::getSaldoCliente($no_celular);
             
             $costoActual = AdministradorController::getCostoActual();
@@ -158,13 +159,13 @@ class ApiController extends Controller
                 'Data' => $saldo,
                 'Estado' => 'Ok',
             );
-        }else{
-            $respuesta = array(
-                'codMensaje' => 001,
-                'Mensaje' => "El método con que se envían los datos no corresponde. Debe ser POST",
-                'Estado' => 'Error',
-            );
-        }
+//        }else{
+//            $respuesta = array(
+//                'codMensaje' => 001,
+//                'Mensaje' => "El método con que se envían los datos no corresponde. Debe ser POST",
+//                'Estado' => 'Error',
+//            );
+//        }
         $response = new Response(json_encode($respuesta));
         $response->headers->set('Content-Type', 'application/json');
 
@@ -183,8 +184,8 @@ class ApiController extends Controller
         );
         
         $response = new Response(json_encode($saldoDisponible));
-//        $response->headers->set('Content-Type', 'application/json');
-//        $response->headers->set('Access-Control-Allow-Origin', '*'); // Para permitir el acceso cross-domain
+        $response->headers->set('Content-Type', 'application/json');
+        $response->headers->set('Access-Control-Allow-Origin', '*'); // Para permitir el acceso cross-domain
 
         return $response;
     }
