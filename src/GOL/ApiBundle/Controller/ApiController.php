@@ -119,22 +119,21 @@ class ApiController extends Controller
     }
     
     function apiGetConsumoClienteAction(Request $request) {
-        //if ($request->getMethod() == 'POST'){
-            $no_celular = "3015192617";
-            $consumos = ConsumoController::getConsumoCliente($no_celular);
+        if ($request->getMethod() == 'POST'){
+            $consumos = ConsumoController::getConsumoCliente($request->get('no_celular_origen'));
             $respuesta = array(
                     'codMensaje' => 0,
                     'Mensaje' => "Consulta exitosa",
                     'Data' => $consumos,
                     'Estado' => 'Ok',
                 );
-//        }else{
-//            $respuesta = array(
-//                'codMensaje' => 001,
-//                'Mensaje' => "El método con que se envían los datos no corresponde. Debe ser POST",
-//                'Estado' => 'Error',
-//            );
-//        }
+        }else{
+            $respuesta = array(
+                'codMensaje' => 001,
+                'Mensaje' => "El método con que se envían los datos no corresponde. Debe ser POST",
+                'Estado' => 'Error',
+            );
+        }
         $response = new Response(json_encode($respuesta));
         $response->headers->set('Content-Type', 'application/json');
 

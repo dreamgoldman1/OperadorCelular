@@ -7,6 +7,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class SaldoController extends Controller
 {
     public function getSaldoCliente($no_celular) {
+        
+        
+        echo "<pre>";
+        print_r("Entra en el llamado de la funcion");
+        die;
+        
+        
+        
         $repository = $this->getDoctrine()->getManager();
         
         $query = $repository->createQuery(
