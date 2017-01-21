@@ -184,7 +184,7 @@ class ApiController extends Controller
         
         $response = new Response(json_encode($saldoDisponible));
         $response->headers->set('Content-Type', 'application/json');
-        $response->headers->set('Access-Control-Allow-Origin', 'http://clientecelular.dev'); // Para permitir el acceso cross-domain
+        $response->headers->set('Access-Control-Allow-Origin', '*'); // Para permitir el acceso cross-domain
 
         return $response;
     }
