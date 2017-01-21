@@ -172,6 +172,12 @@ class ApiController extends Controller
     }
     
     function apiGetSaldoDisponibleAction($no_celular) {
+        
+        
+        $response = new Response("Esta es la respuesta del API");
+        die;
+        
+        
         $saldo = SaldoController::getSaldoCliente($no_celular);
         $costoActual = AdministradorController::getCostoActual();
         
