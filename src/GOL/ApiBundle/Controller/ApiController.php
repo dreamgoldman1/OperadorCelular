@@ -175,13 +175,6 @@ class ApiController extends Controller
         $saldo = SaldoController::getSaldoCliente($no_celular);
         $costoActual = AdministradorController::getCostoActual();
         
-        
-        $response = new Response("Pasa la conexion a la base de datos");
-        return $response;
-        
-        
-        
-        
         $saldo['saldo'] = $saldo['total_recargas'] - $saldo['total_consumos'];
         
         $saldoDisponible = array(
@@ -190,8 +183,8 @@ class ApiController extends Controller
         );
         
         $response = new Response(json_encode($saldoDisponible));
-        $response->headers->set('Content-Type', 'application/json');
-        $response->headers->set('Access-Control-Allow-Origin', '*'); // Para permitir el acceso cross-domain
+//        $response->headers->set('Content-Type', 'application/json');
+//        $response->headers->set('Access-Control-Allow-Origin', '*'); // Para permitir el acceso cross-domain
 
         return $response;
     }
