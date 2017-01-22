@@ -142,10 +142,11 @@ class ApiController extends Controller
     
     function apiGetSaldoClienteAction(Request $request){
         if ($request->getMethod() == 'POST'){
+            $repository = $this->getDoctrine()->getManager();
             $no_celular = $request->get('no_celular');
-            $saldo = SaldoController::getSaldoCliente($no_celular);
+            $saldo = SaldoController::getSaldoCliente($no_celular, $repository);
             
-            $costoActual = AdministradorController::getCostoActual();
+            $costoActual = AdministradorController::getCostoActual($repository);
             
             $saldo['no_celular'] = $no_celular;
             $saldo['costo_actual'] = $costoActual['valor_segundo'];
