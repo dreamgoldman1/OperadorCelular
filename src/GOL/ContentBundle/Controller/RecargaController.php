@@ -56,6 +56,7 @@ class RecargaController extends Controller
      * Funciones para el API
      */
     public function registrarRecarga($parametros) {
+        try{
         $recarga = new Recarga();
         $recarga->setNoCelular($parametros['no_celular']);
         $recarga->setValorRecarga($parametros['valor_recarga']);
@@ -64,7 +65,11 @@ class RecargaController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
         $em->persist($recarga);
         $em->flush();
-
+        }  catch (\Doctrine\DBAL\DBALException $e){
+            echo "<pre>";
+            var_dump($e->getMessage());
+            die;
+        }
         return true;
     }
     
