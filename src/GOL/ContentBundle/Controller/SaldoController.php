@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class SaldoController extends Controller
 {
     public function getSaldoCliente($no_celular) {
-        $repository = $this->getDoctrine()->getManager();
+        $repository = self::getDoctrine()->getManager();
         
         $query = $repository->createQuery(
             'SELECT sum(r.valorRecarga) total_recarga
