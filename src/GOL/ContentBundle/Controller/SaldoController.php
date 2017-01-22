@@ -17,10 +17,6 @@ class SaldoController extends Controller
 
         $totalRecargas = $query->getResult();
         
-        echo "<pre>";
-        var_dump($totalRecargas);
-        die;
-        
         $query = $repository->createQuery(
             'SELECT sum(c.valorLlamada) total_consumo
             FROM GOLContentBundle:Consumo c

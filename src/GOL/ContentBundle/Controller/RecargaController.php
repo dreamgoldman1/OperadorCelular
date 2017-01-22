@@ -56,14 +56,26 @@ class RecargaController extends Controller
      * Funciones para el API
      */
     public function registrarRecarga($parametros) {
+        
+        print_r("Esta haciendo el llamado de la función");
+        
+        
+        print_r("Va a comenar con la base de datos");
+        
         $recarga = new Recarga();
         $recarga->setNoCelular($parametros['no_celular']);
         $recarga->setValorRecarga($parametros['valor_recarga']);
         $recarga->setFechaRecarga($parametros['fecha']);
 
+        print_r("Apunto de hacer el flush");
+        
         $em = $this->getDoctrine()->getEntityManager();
         $em->persist($recarga);
         $em->flush();
+        
+        
+        print_r("Despues del flush");
+        
         
         return true;
     }

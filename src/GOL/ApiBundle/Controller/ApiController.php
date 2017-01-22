@@ -24,7 +24,15 @@ class ApiController extends Controller
                 'valor_recarga' => $valor_recarga,
                 'fecha' => $fecha,
             );
+            
+            print_r("En el api antes de llamar el controlador");
+            
+            
             $recarga = RecargaController::registrarRecarga($parametros);
+            
+            
+            print_r("En el api despues de llamar el controlador");
+            die;
             
             if ($recarga){
                 $respuesta = array(
