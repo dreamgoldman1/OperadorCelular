@@ -120,6 +120,11 @@ class ApiController extends Controller
     
     function apiGetConsumoClienteAction(Request $request) {
         //if ($request->getMethod() == 'POST'){
+            
+            echo "<pre>";
+            var_dump("Esta es una prueba");
+            die;
+        
             $consumos = ConsumoController::getConsumoCliente("3015192617");
             
             echo "<pre>";
