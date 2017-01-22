@@ -51,7 +51,7 @@ class AdministradorController extends Controller
     public function getCostoActual() {
         $filtros = array();
         $order = array('fecha' => 'DESC');
-        $repository = \Symfony\Bundle\FrameworkBundle\Controller\Controller::getDoctrine()->getManager();
+        $repository = $this->getDoctrine()->getManager();
         $costoDB = $repository->getRepository('GOLContentBundle:Costo')->findOneBy($filtros,$order);
         
         $costoActual = array(

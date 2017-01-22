@@ -352,7 +352,7 @@ abstract class Controller implements ContainerAwareInterface
      *
      * @throws \LogicException If DoctrineBundle is not available
      */
-    protected function getDoctrine()
+    public function getDoctrine()
     {
         if (!$this->container->has('doctrine')) {
             throw new \LogicException('The DoctrineBundle is not registered in your application.');
