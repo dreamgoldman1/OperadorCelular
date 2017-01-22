@@ -14,33 +14,17 @@ class ApiController extends Controller
 {
     public function apiRecargaAction(Request $request)
     {
-        //if ($request->getMethod() == 'POST'){
-            
-        
-        
-//            $no_celular = $request->get('no_celular');
-//            $valor_recarga = $request->get('valor_recarga');
-//            $fecha = date('Y-m-d H:i:s');
-            
-            $no_celular = "lo que sea";
-            $valor_recarga = "lo que sea";
-            $fecha = "lo que sea";
+        if ($request->getMethod() == 'POST'){
+            $no_celular = $request->get('no_celular');
+            $valor_recarga = $request->get('valor_recarga');
+            $fecha = date('Y-m-d H:i:s');
             
             $parametros = array(
                 'no_celular' => $no_celular,
                 'valor_recarga' => $valor_recarga,
                 'fecha' => $fecha,
             );
-            
-            print_r("En el api antes de llamar el controlador");
-            
-            
             $recarga = RecargaController::registrarRecarga($parametros);
-            
-            
-            print_r("En el api despues de llamar el controlador");
-            die;
-            
             if ($recarga){
                 $respuesta = array(
                     'codMensaje' => 0,
@@ -54,13 +38,13 @@ class ApiController extends Controller
                     'Estado' => 'Error',
                 );
             }
-//        }else{
-//            $respuesta = array(
-//                'codMensaje' => 001,
-//                'Mensaje' => "El método con que se envían los datos no corresponde. Debe ser POST",
-//                'Estado' => 'Error',
-//            );
-//        }
+        }else{
+            $respuesta = array(
+                'codMensaje' => 001,
+                'Mensaje' => "El método con que se envían los datos no corresponde. Debe ser POST",
+                'Estado' => 'Error',
+            );
+        }
         $response = new Response(json_encode($respuesta));
         $response->headers->set('Content-Type', 'application/json');
 
