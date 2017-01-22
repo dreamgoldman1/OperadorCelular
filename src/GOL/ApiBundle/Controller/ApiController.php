@@ -172,8 +172,8 @@ class ApiController extends Controller
     }
     
     function apiGetSaldoDisponibleAction($no_celular) {
-        self::getDoctrine()->getManager();
-        $saldo = SaldoController::getSaldoCliente($no_celular);
+        $repository = $this->getDoctrine()->getManager();
+        $saldo = SaldoController::getSaldoCliente($no_celular, $repository);
         $costoActual = AdministradorController::getCostoActual();
         
         $saldo['saldo'] = $saldo['total_recargas'] - $saldo['total_consumos'];

@@ -48,10 +48,10 @@ class AdministradorController extends Controller
         return $costos;
     }
     
-    public function getCostoActual() {
+    public function getCostoActual($repository) {
         $filtros = array();
         $order = array('fecha' => 'DESC');
-        $repository = $this->getDoctrine()->getManager();
+        //$repository = $this->getDoctrine()->getManager();
         $costoDB = $repository->getRepository('GOLContentBundle:Costo')->findOneBy($filtros,$order);
         
         $costoActual = array(
