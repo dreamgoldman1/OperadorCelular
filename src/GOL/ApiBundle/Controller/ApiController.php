@@ -15,6 +15,7 @@ class ApiController extends Controller
     public function apiRecargaAction(Request $request)
     {
         if ($request->getMethod() == 'POST'){
+            $em = $this->getDoctrine()->getEntityManager();
             
             $no_celular = $request->get('no_celular');
             $valor_recarga = $request->get('valor_recarga');
@@ -24,7 +25,7 @@ class ApiController extends Controller
                 'valor_recarga' => $valor_recarga,
                 'fecha' => $fecha,
             );
-            $recarga = RecargaController::registrarRecarga($parametros);
+            $recarga = RecargaController::registrarRecarga($parametros, $em);
             
             if ($recarga){
                 $respuesta = array(
@@ -54,7 +55,9 @@ class ApiController extends Controller
     
     function apiGetRecargaClienteAction(Request $request) {
         if ($request->getMethod() == 'POST'){
-            $recargas = RecargaController::getRecargasCliente($request->get('no_celular'));
+            $repository = $this->getDoctrine()->getManager();
+            
+            $recargas = RecargaController::getRecargasCliente($request->get('no_celular'), $repository);
             $respuesta = array(
                     'codMensaje' => 0,
                     'Mensaje' => "Consulta exitosa",
@@ -77,9 +80,12 @@ class ApiController extends Controller
     public function apiRegistrarLlamadaAction(Request $request)
     {
         if ($request->getMethod() == 'POST'){
+            $repository = $this->getDoctrine()->getManager();
+            $em = $this->getDoctrine()->getEntityManager();
+            
             $no_celular_origen = $request->get('no_celular_origen');
             $no_celular_destino = $request->get('no_celular_destino');
-            $costoActual = AdministradorController::getCostoActual();
+            $costoActual = AdministradorController::getCostoActual($repository);
             $valor_llamada = $request->get('tiempo') * $costoActual['valor_segundo'];  // se debe consultar el valor del segundo de la base de datos
             $tiempo = $request->get('tiempo');
             $fecha_llamada = date('Y-m-d H:i:s');
@@ -90,7 +96,7 @@ class ApiController extends Controller
                 'fecha_llamada' => $fecha_llamada,
                 'tiempo' => $tiempo,
             );
-            $llamada = ConsumoController::registrarLlamada($parametros);
+            $llamada = ConsumoController::registrarLlamada($parametros, $em);
             
             if ($llamada){
                 $respuesta = array(
@@ -120,7 +126,8 @@ class ApiController extends Controller
     
     function apiGetConsumoClienteAction(Request $request) {
         if ($request->getMethod() == 'POST'){
-            $consumos = ConsumoController::getConsumoCliente($request->get('no_celular_origen'));
+            $repository = $this->getDoctrine()->getManager();
+            $consumos = ConsumoController::getConsumoCliente($request->get('no_celular_origen'),$repository);
             $respuesta = array(
                     'codMensaje' => 0,
                     'Mensaje' => "Consulta exitosa",

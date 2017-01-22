@@ -55,23 +55,23 @@ class RecargaController extends Controller
     /*
      * Funciones para el API
      */
-    public function registrarRecarga($parametros) {
+    public function registrarRecarga($parametros, $em) {
         $recarga = new Recarga();
         $recarga->setNoCelular($parametros['no_celular']);
         $recarga->setValorRecarga($parametros['valor_recarga']);
         $recarga->setFechaRecarga($parametros['fecha']);
 
-        $em = $this->getDoctrine()->getEntityManager();
+        //$em = $this->getDoctrine()->getEntityManager();
         $em->persist($recarga);
         $em->flush();
         
         return true;
     }
     
-    public function getRecargasCliente($no_celular) {
+    public function getRecargasCliente($no_celular, $repository) {
         $filtros = array('noCelular' => $no_celular);
         $order = array('fechaRecarga' => 'DESC');
-        $repository = $this->getDoctrine()->getManager();
+        //$repository = $this->getDoctrine()->getManager();
         $recargasDB = $repository->getRepository('GOLContentBundle:Recarga')->findBy($filtros, $order);
         
         $dataRecargas = array();

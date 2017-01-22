@@ -54,41 +54,10 @@ class ConsumoController extends Controller
         return $consumos;
     }
     
-//    public function getDetallesConsumosCliente($noTelefono){
-//        $consumos = array(
-//            array(
-//                'tiempo' => '20',
-//                'valor' => '5000',
-//                'fecha' => '2014-01-01',
-//            ),
-//            array(
-//                'tiempo' => '50',
-//                'valor' => '15000',
-//                'fecha' => '2015-02-01',
-//            ),
-//            array(
-//                'tiempo' => '100',
-//                'valor' => '25000',
-//                'fecha' => '2015-03-01',
-//            ),
-//            array(
-//                'tiempo' => '30',
-//                'valor' => '10000',
-//                'fecha' => '2014-01-05',
-//            ),
-//            array(
-//                'tiempo' => '10',
-//                'valor' => '2000',
-//                'fecha' => '2016-01-06',
-//            ),
-//        );
-//        return $consumos;
-//    }
-    
     /*
      * Funciones para los llamados del API
      */
-    public function registrarLlamada($parametros) {
+    public function registrarLlamada($parametros, $em) {
         $consumo = new Consumo();
         $consumo->setNoCelularOrigen($parametros['no_celular_origen']);
         $consumo->setNoCelularDestino($parametros['no_celular_destino']);
@@ -96,17 +65,17 @@ class ConsumoController extends Controller
         $consumo->setFechaLlamada($parametros['fecha_llamada']);
         $consumo->setTiempo($parametros['tiempo']);
 
-        $em = $this->getDoctrine()->getEntityManager();
+        //$em = $this->getDoctrine()->getEntityManager();
         $em->persist($consumo);
         $em->flush();
         
         return true;
     }
     
-    public function getConsumoCliente($no_celular_origen) {
+    public function getConsumoCliente($no_celular_origen,$repository) {
         $filtros = array('noCelularOrigen' => $no_celular_origen);
         $order = array('fechaLlamada' => 'DESC');
-        $repository = $this->getDoctrine()->getManager();
+        //$repository = $this->getDoctrine()->getManager();
         $consumosDB = $repository->getRepository('GOLContentBundle:Consumo')->findBy($filtros, $order);
         
         $dataConsumos = array();
